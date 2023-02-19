@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# What is Blossomer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Blossomer is a project created to manage the onboarding process of a brick-and-mortar store in Nyack, NY named Squash Blossom onto a Shopify instance.
 
-## Available Scripts
+## UI's
 
-In the project directory, you can run:
+### Login
 
-### `npm start`
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/1462292/219971900-61a32e00-4baa-4c7c-9645-1b7e738896fd.png">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Product onboarding and SKUing
 
-### `npm test`
+Blossomer includes a form for intaking products, automatically assigns them a SKU, creates a corresponding Shopify product and prints a DYMO label
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/1462292/219972011-d115997b-b37d-43fb-9c18-3fd28bed9b0c.png">
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Editing existing products
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A SKU can be entered into the form on the bottom right to begin editing an existing product, a query to the GraphQL API is made and populates the form, allowing the user to submit the form and edit the product
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/1462292/219972078-d1d6a325-a49c-4899-bf75-742643d61979.png">
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Uploading Photos
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Blossomer hanldes uploading photos to Shopify by allowed the user to drag and drop photos which are then shown on the page, the user can then drag and drop the individual photos to change their order or remove a photo by clicking on it. The user can submit the photos by entering a SKU and clicking upload. This works well for my use-case because I start each photographing each product by taking a picture of the SKU on the label; meaning I can import all photos of a product, use the first photo to get the SKU, than remove it before uploading to Shopify. Blossomer then uses canvas to re-size the photos to the maximum size allowed by Shopify (20MP) while preserving aspect ratio.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/1462292/219972253-c57200c1-29bb-49f5-9f06-769963875292.png">
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/1462292/219972373-5e5f25ba-117d-4f32-a264-0331a25a3ece.png">
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Design Goals
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Blossomer was designed for maximum efficency in data entry and touch time for a given product. As many steps as possible are consolidated into as little as possible. As a performant single page application Blossomer is capable of fully processing around 100 items an hour.
